@@ -22,3 +22,11 @@ modules:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
           srv-url: ${default-url}
+    requires:
+      - name: cpapp-logs
+resources:
+- name: cpapp-logs
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: application-logs
+    service-plan: lite
